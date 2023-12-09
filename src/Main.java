@@ -4,21 +4,18 @@ public class Main {
     public static void main(String[] args) {
 
         //boundary
-        int n = 30;
-        // canvas related settings
-        StdDraw.setScale(-n, n);
-        StdDraw.enableDoubleBuffering();
-        StdDraw.clear(StdDraw.GRAY);
+        int n = 10;
+        // init canvas
+        Canvas canvas = new Canvas(n);
 
-        Color[] colors = {Color.BLACK, Color.RED, Color.CYAN, Color.DARK_GRAY, Color.GREEN, Color.ORANGE,
-        Color.YELLOW, Color.BLUE, Color.MAGENTA, Color.PINK};
+        Color[] colors = {Color.BLACK, Color.CYAN, Color.DARK_GRAY, Color.GREEN, Color.ORANGE,
+        Color.YELLOW, Color.BLUE, Color.MAGENTA, Color.PINK, new Color(168, 166, 79)};
 
 
         //creating 10 particle
-        Particle[] particles = new Particle[10];
-        for(int j=0; j < 10; j++) {
-            particles[j] = new Particle(j,j+2, n, colors[j]);
-//            particles[j].setParticleColor(colors[j]);
+        Particle[] particles = new Particle[2];
+        for(int j=0; j < particles.length; j++) {
+            particles[j] = new Particle(canvas, j,j+2, n, colors[j]);
         }
 
         //moving 10 particles
